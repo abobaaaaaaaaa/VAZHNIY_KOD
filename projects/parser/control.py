@@ -1,11 +1,14 @@
 class Checker:
-    def check_page(self,answer):
-        if answer==True:
+    @staticmethod
+    def check_page(page, answer):
+        if answer == True:
             return True
         else:
-            return answer
-    def check_result(self,result):
-        if type(result)==None:
             return False
+
+    @staticmethod
+    def check_result(result):
+        if result:
+            return result
         else:
-            return result.text
+            return False
