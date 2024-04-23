@@ -3,6 +3,8 @@ from tkinter import ttk
 from model import Parser
 from control import Checker
 
+f = open('results.txt', 'a')
+
 
 def pars(page_input, container_input, container_class_input):
     page = page_input.get()
@@ -16,6 +18,18 @@ def pars(page_input, container_input, container_class_input):
         if result:
             output = ttk.Label(root, text=result, font=("Arial", 14))
             output.pack()
+            f = open('results.txt', 'a')
+            f.write(str(page))
+            f.write(("\n"))
+            f.write(str(container))
+            f.write(("\n"))
+            f.write(str(container_class))
+            f.write(("\n"))
+            f.write(str(result))
+            f.write(("\n"))
+            f.write('************************************************************************************************************')
+            f.write(("\n"))
+            f.close()
         else:
             output = ttk.Label(root, text='wrong input data', font=("Arial", 14))
             output.pack()
