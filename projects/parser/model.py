@@ -1,7 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
-import numpy as np
 
 
 class Parser:
@@ -29,3 +28,9 @@ class Parser:
                 return result[i].text if result else None
         except requests.exceptions.RequestException as e:
             return str(e)
+    def random_jokes(self):
+        jokes=[]
+        for k in range(10):
+            jokes.append(self.parser())
+        df=pd.DataFrame({'jokes':jokes})
+        df.to_csv('jokes.csv')
