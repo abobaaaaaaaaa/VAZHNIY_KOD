@@ -3,8 +3,6 @@ from tkinter import ttk
 from model import Parser
 from control import Checker
 
-f = open('results.txt', 'a')
-
 
 def pars(page_input, container_input, container_class_input):
     page = page_input.get()
@@ -36,8 +34,9 @@ def pars(page_input, container_input, container_class_input):
     else:
         output = ttk.Label(root, text='Page check failed', font=("Arial", 14))
         output.pack()
-
-
+def pars_random_jokes():
+    result=Parser('https://www.anekdot.ru/random/anekdot/','text','div')
+    result.random_jokes()
 root = Tk()
 root.geometry('1280x720')
 root.title('parserЪ')
@@ -58,5 +57,6 @@ container_class_input.pack()
 
 comp = ttk.Button(root, text='complete', command=lambda: pars(page_input, container_input, container_class_input))
 comp.pack()
-
+joker=ttk.Button(root,text='10 random jokes',command=pars_random_jokes)
+joker.pack(anchor=SE)
 root.mainloop()
