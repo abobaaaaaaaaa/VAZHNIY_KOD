@@ -1,8 +1,12 @@
 how to install:
   download pycharm
+  
   new project
+  
   download view, control,model and requierments
+  
   put they into project
+  
   in pycharm press button 'install requierments'
 
 how to launch:
